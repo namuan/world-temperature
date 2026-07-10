@@ -2,6 +2,8 @@
 
 An interactive, zoomable world map with real daily city-temperature snapshots. The browser reads a static snapshot; weather-provider requests run only in the scheduled publishing job.
 
+![Temperature Atlas showing daily readings around the world](assets/temperature-atlas.png)
+
 ## Run locally
 
 ```sh
@@ -36,7 +38,7 @@ It batches coordinate requests, retries transient failures, writes raw readings 
 
 ## GitHub Pages
 
-The repository includes [.github/workflows/publish-pages.yml](.github/workflows/publish-pages.yml). Enable **Settings → Pages → Source → GitHub Actions** after pushing to GitHub.
+The repository includes [.github/workflows/static.yml](.github/workflows/static.yml). Enable **Settings → Pages → Source → GitHub Actions** after pushing to GitHub.
 
 The workflow deploys on every push to `main`, can be run manually, and refreshes the weather data daily at 07:17 UTC before publishing. It deploys only the frontend and current map snapshot; source catalogues, scripts, and raw readings are not public Pages assets.
 
@@ -49,3 +51,7 @@ For the global catalogue, generate PMTiles after the daily snapshot and publish 
 ```
 
 The UI detects this automatically and avoids downloading a worldwide GeoJSON file. The `aggregates` layer is used at low zoom and individual city points are used from zoom 3 upward.
+
+## License
+
+[MIT License](LICENSE)
