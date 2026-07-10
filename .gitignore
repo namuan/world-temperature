@@ -1,0 +1,3 @@
+.DS_Store
+dist/
+data/versions/**/raw-readings.json

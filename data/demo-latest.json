@@ -1,0 +1,8 @@
+{
+  "snapshot_date": "2026-07-10",
+  "display_date": "10 July 2026",
+  "observed_at": "2026-07-10T09:00:00Z",
+  "provider_name": "Local demonstration snapshot",
+  "coverage": { "city_count": 30, "country_count": 26 },
+  "tiles": { "geojson_url": "data/versions/2026-07-10/cities.geojson" }
+}

@@ -1,0 +1,13 @@
+{
+  "snapshot_date": "2026-07-10",
+  "display_date": "10 July 2026",
+  "observed_at": "2026-07-10T17:12:25.928Z",
+  "provider_name": "Open-Meteo daily snapshot",
+  "coverage": {
+    "city_count": 500,
+    "country_count": 100
+  },
+  "tiles": {
+    "geojson_url": "data/versions/2026-07-10/cities.geojson"
+  }
+}

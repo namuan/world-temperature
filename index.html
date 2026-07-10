@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f2ea">
+  <title>Temperature Atlas</title>
+  <link rel="preconnect" href="https://unpkg.com">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@5.12.0/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Manrope:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="app.css">
+</head>
+<body>
+  <main class="atlas-shell">
+    <header class="masthead">
+      <a class="wordmark" href="./" aria-label="Temperature Atlas home">
+        <span class="wordmark-mark" aria-hidden="true"></span>
+        <span>Temperature Atlas</span>
+      </a>
+      <p id="snapshot-status" class="snapshot-status" aria-live="polite">Loading daily snapshot</p>
+      <div class="masthead-actions">
+        <div class="unit-switch" role="group" aria-label="Temperature unit">
+          <button class="unit-button is-active" type="button" data-unit="c">°C</button>
+          <button class="unit-button" type="button" data-unit="f">°F</button>
+        </div>
+        <button id="reload-button" class="icon-button" type="button" aria-label="Reload daily data" title="Reload daily data">
+          <i data-lucide="refresh-cw" aria-hidden="true"></i>
+        </button>
+      </div>
+    </header>
+
+    <section class="map-stage" aria-label="Interactive world temperature map">
+      <div id="map"></div>
+
+      <aside class="map-sidebar" aria-label="Map controls and selected city">
+        <div class="sidebar-top">
+          <p class="eyebrow">Daily city temperature</p>
+          <h1>World at a glance</h1>
+          <form id="search-form" class="search-form" role="search">
+            <label class="sr-only" for="city-search">Find a city or country</label>
+            <i data-lucide="search" aria-hidden="true"></i>
+            <input id="city-search" type="search" autocomplete="off" placeholder="Find a city or country">
+            <button id="clear-search" class="search-clear" type="button" aria-label="Clear search" title="Clear search" hidden>
+              <i data-lucide="x" aria-hidden="true"></i>
+            </button>
+          </form>
+          <div id="search-results" class="search-results" hidden></div>
+        </div>
+
+        <div id="selection" class="selection is-empty">
+          <p class="selection-kicker">Select a point</p>
+          <p class="selection-empty">Zoom in to reveal city readings, then select one for its daily snapshot.</p>
+        </div>
+
+        <div class="sidebar-bottom">
+          <div class="scale-header">
+            <span>Temperature scale</span>
+            <span id="scale-unit">°C</span>
+          </div>
+          <div class="temperature-scale" aria-hidden="true"></div>
+          <div class="scale-labels"><span>-20°</span><span>0°</span><span>20°</span><span>40°</span></div>
+          <div class="map-summary">
+            <span id="coverage-count">—</span>
+            <button id="reset-view" class="text-button" type="button">Reset view</button>
+          </div>
+        </div>
+      </aside>
+
+      <div class="map-caption">
+        <span id="snapshot-date">—</span>
+        <span class="caption-divider" aria-hidden="true">•</span>
+        <span id="snapshot-source">—</span>
+      </div>
+
+      <div id="map-loading" class="map-loading" role="status">
+        <span class="loading-rule" aria-hidden="true"></span>
+        Preparing the atlas
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/maplibre-gl@5.12.0/dist/maplibre-gl.js"></script>
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
